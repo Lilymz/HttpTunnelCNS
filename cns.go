@@ -8,22 +8,22 @@ type RedisConfig struct {
 	Password string `json:"Password"`
 }
 type CnsConfig struct {
-	UdpTimeOut int           `json:"UdpTimeOut"`
-	TcpTimeOut int           `json:"TcpTimeOut"`
-	ListenAddr []string      `json:"ListenAddr"`
-	KeepAlive  time.Duration `json:"KeepAlive"`
-	Account    string        `json:"Account"`
+	UdpTimeOut time.Duration `yaml:"UdpTimeOut"`
+	TcpTimeOut time.Duration `yaml:"TcpTimeOut"`
+	ListenAddr []string      `yaml:"ListenAddr"`
+	KeepAlive  bool          `yaml:"KeepAlive"`
+	Account    string        `yaml:"Account"`
 	*RedisConfig
-	EnableTCPToUDP bool `json:"EnableTCPToUDP"`
-	EnableHttpDNS  bool `json:"EnableHttpDNS"`
-	EnableTFO      bool `json:"EnableTFO"`
+	EnableTCPToUDP bool `yaml:"EnableTCPToUDP"`
+	EnableHttpDNS  bool `yaml:"EnableHttpDNS"`
+	EnableTFO      bool `yaml:"EnableTFO"`
 }
 
 var config = &CnsConfig{
 	UdpTimeOut: 30,
 	TcpTimeOut: 300,
-	ListenAddr: []string{"7998"},
-	KeepAlive:  time.Minute * 5,
+	ListenAddr: []string{":8889", ":443"},
+	KeepAlive:  true,
 	Account:    "cnsProxy",
 	RedisConfig: &RedisConfig{
 		Ip:       "",

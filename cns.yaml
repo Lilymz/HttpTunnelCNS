@@ -1,0 +1,19 @@
+UdpTimeOut: 30 #TCP连接超时时间
+TcpTimeOut: 300 #UDP连接超时时间
+KeepAlive: true #是否采用长连接
+Account: xunyuan #开户账号
+EnableTCPToUDP: true  #是否支持httpTCP转UDP
+EnableHttpDNS: true #是否能够处理httpDNS请求
+EnableTFO: true #是否快速连接TCP
+RedisConfig:
+  Ip: 106.12.131.153 #ip
+  Port: 6389 #端口
+  Password: cnsRedis #redis密码
+#日志配置
+filepath: ./cns.log #/usr/local/cnsNew/cns.log
+max_size: 1024*1024*50 #默认20MB
+rotate_time: 86400 #一天轮转一次
+close_lock: false #是否使用锁
+backup_num: 20 #备份数量
+backup_time: 24*7 #最长备份时间
+compress: false #是否使用gzip压缩
